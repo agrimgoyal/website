@@ -1221,10 +1221,16 @@
                 gap: 1.5rem;
                 transition: left var(--transition-normal);
                 box-shadow: var(--shadow-xl);
+                z-index: 999;
             }
 
             .nav-links.active {
                 left: 0;
+            }
+
+            /* Dark mode mobile menu */
+            .dark-theme .nav-links {
+                background: var(--bg-white);
             }
 
             .mobile-menu {
