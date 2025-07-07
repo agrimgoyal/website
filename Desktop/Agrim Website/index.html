@@ -317,12 +317,17 @@
 
         .hero-description {
             font-size: clamp(1rem, 2vw, 1.2rem);
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-light);
             margin-bottom: 2rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.8;
+        }
+
+        /* Dark mode hero description */
+        .dark-theme .hero-description {
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .hero-stats {
@@ -340,15 +345,24 @@
         .hero-stat-number {
             font-size: 2.5rem;
             font-weight: 800;
-            color: white;
+            color: var(--text-dark);
             display: block;
         }
 
         .hero-stat-label {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-light);
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        /* Dark mode hero stats */
+        .dark-theme .hero-stat-number {
+            color: white;
+        }
+
+        .dark-theme .hero-stat-label {
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .cta-buttons {
