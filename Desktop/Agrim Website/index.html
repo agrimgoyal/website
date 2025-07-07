@@ -2418,22 +2418,28 @@ function evaluateExpression(expr) {<br>
 
         // Initialize
         window.addEventListener('load', () => {
-            // Hide loader
-            setTimeout(() => {
+            try {
+                // Hide loader
+                setTimeout(() => {
+                    elements.loader.classList.add('hidden');
+                }, LOADER_DELAY);
+                
+                // Set current year
+                elements.currentYear.textContent = new Date().getFullYear();
+                
+                // Initialize animations
+                handleScroll();
+                
+                // Type hero title
+                const heroTitle = document.querySelector('.hero h1');
+                if (heroTitle) {
+                    const originalText = heroTitle.textContent;
+                    typeWriter(heroTitle, originalText, 80);
+                }
+            } catch (error) {
+                console.error('Initialization error:', error);
+                // Fallback: just hide loader
                 elements.loader.classList.add('hidden');
-            }, LOADER_DELAY);
-            
-            // Set current year
-            elements.currentYear.textContent = new Date().getFullYear();
-            
-            // Initialize animations
-            handleScroll();
-            
-            // Type hero title
-            const heroTitle = document.querySelector('.hero h1');
-            if (heroTitle) {
-                const originalText = heroTitle.textContent;
-                typeWriter(heroTitle, originalText, 80);
             }
         });
 
