@@ -2178,21 +2178,35 @@ function evaluateExpression(expr) {<br>
             // Update active section
             const sections = document.querySelectorAll('section[id]');
             const scrollPosition = currentScroll + 100;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.body.scrollHeight;
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
+            // Check if we're near the bottom of the page
+            if (currentScroll + windowHeight >= documentHeight - 50) {
+                // We're at the bottom, highlight contact
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#contact') {
+                        link.classList.add('active');
+                    }
+                });
+            } else {
+                // Normal section detection
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
         }, 100);
 
         window.addEventListener('scroll', handleScroll);
