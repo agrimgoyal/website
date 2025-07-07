@@ -1157,24 +1157,34 @@
         .contact {
             text-align: center;
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--bg-light);
+            color: var(--text-dark);
         }
 
         /* Dark mode contact section */
         .dark-theme .contact {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
         }
 
         .contact .section-title {
-            -webkit-text-fill-color: white;
+            -webkit-text-fill-color: var(--text-dark);
             margin-bottom: 1rem;
         }
 
         .contact-subtitle {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--text-light);
             margin-bottom: 3rem;
+        }
+
+        /* Dark mode contact title and subtitle */
+        .dark-theme .contact .section-title {
+            -webkit-text-fill-color: white;
+        }
+
+        .dark-theme .contact-subtitle {
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .contact-grid {
