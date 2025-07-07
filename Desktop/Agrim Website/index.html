@@ -2450,6 +2450,24 @@ function evaluateExpression(expr) {<br>
             if (e.key === 'Escape' && elements.navLinks.classList.contains('active')) {
                 toggleMobileMenu();
             }
+            
+            // Quick navigation shortcuts
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        document.querySelector('#home').scrollIntoView({ behavior: 'smooth' });
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                        break;
+                }
+            }
         });
 
         // Focus management for accessibility
