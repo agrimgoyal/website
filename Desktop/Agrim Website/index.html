@@ -149,12 +149,16 @@
 
         /* Dark mode navigation */
         .dark-theme nav {
-            background: rgba(31, 41, 55, 0.95);
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .dark-theme nav.scrolled {
-            background: rgba(31, 41, 55, 0.98);
+            background: rgba(31, 41, 55, 0.9);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
